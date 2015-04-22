@@ -9,3 +9,10 @@ TEST(NginxConfigParserTest, SimpleConfig) {
 
   EXPECT_TRUE(success);
 }
+
+TEST(NginxConfigParserTest, TestStatement) {
+  NginxConfigStatement stmt;
+  stmt.tokens_.push_back("a");
+  stmt.tokens_.push_back("b");
+  EXPECT_EQ("a b;\n", stmt.ToString(0));
+}
